@@ -1,0 +1,18 @@
+%matplotlib inline
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+plt.style.use('ggplot')  # Красивые графики
+plt.rcParams['figure.figsize'] = (15, 5)  # Размер картинок
+
+fixed_df = pd.read_csv('C:\\Users\\kiril\\Downloads\\data_var07.txt',  # Это то, куда вы скачали файл
+                       sep=',', 
+                       parse_dates=['Date'], dayfirst=True,
+                       index_col='Date')
+# print(fixed_df['Volume'])
+# fixed_df['Open'].plot()
+# fixed_df['High'].plot()
+# fixed_df['Low'].plot()
+# fixed_df['Close'].plot()
+# fixed_df['Volume'].plot()
