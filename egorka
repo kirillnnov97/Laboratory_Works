@@ -1,0 +1,48 @@
+======================================================================
+2.1
+======================================================================
+import math
+import pylab 
+from matplotlib import mlab
+def f(x):
+    return x**4+18*x-10
+a=0
+b=1
+i=0
+while abs(a-b)>0.0001:
+    i+=1
+    c=(a+b)/2
+    if f(a)*f(c)<0:
+        b=c
+    else:
+        a=c
+print('Половинное деление',c)
+print(i,'итераций')
+
+a=0.4
+b=0.6
+i=0
+
+while abs(b-a)>0.0001:
+    i+=1
+    c=a-f(a)*(b-a)/(f(b)-f(a))
+    if f(a)*f(c)<0:
+        b=c
+#         print(c)
+    else:
+        a=c
+#         print(c)
+print('Метод хорд=',c)
+print(i,'итераций')
+
+xmin=-10
+xmax=10
+dx=0.01
+xlist=mlab.frange(xmin,xmax,dx)
+ylist=[f(x) for x in xlist]
+pylab.plot(xlist,ylist)
+pylab.show
+======================================================================
+2.2
+======================================================================
+  
