@@ -1,0 +1,48 @@
+import pandas as pd
+import numpy as np
+import pylab
+from matplotlib import mlab
+
+def func(x): 
+    return (y[0] + x*d1 + x*(x-1)*d2 + x*(x-1)*(x-2)*d3 + x*(x-1)*(x-2)*(x-3)*d4)         
+            
+y = pd.read_csv('C:\\Users\\kiril\\Downloads\\data_var07.txt',',') 
+y = y['Open']                                                       
+y = y[0:5]
+x = [0,1,2,3,4]
+f1=f = [0,1,2,3,4]
+
+for i in range(4):
+    f[i] = ( y[i+1] - y[i] )
+    print('1',f[i])
+d1=f[0]
+                                 
+                                 
+for i in range(3):
+    f1[i] = ( f[i+1] - f[i] ) / 2
+    print('2',f1[i])
+d2=f1[0]
+                                 
+                                 
+for i in range(2):
+    f[i] = ( f1[i+1] - f1[i] )/ 3
+    print('3',f[i])
+d3=f[0]
+                                 
+                                 
+for i in range(1):
+    f1[i] = ( f[i+1] - f[i] )/ 4
+    print('4',f1[i])
+d4=f1[0]
+print(d1,d2,d3,d4)
+                                 
+xmin=0
+xmax=5
+dx=0.1
+xlist=mlab.frange(xmin,xmax,dx)
+ylist=[func(x) for x in xlist]
+pylab.plot(xlist,ylist)
+pylab.show
+
+
+    
